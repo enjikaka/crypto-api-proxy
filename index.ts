@@ -4,7 +4,16 @@ const env = config();
 const port = parseInt(env.PORT, 10) || 5000;
 const server = serve({ port });
 
-console.log('Running on http://localhost:' + port);
+console.log(`
+  🪙  Crypto API Proxy 🪙
+
+  Running on port ${port}.
+
+  Example links:
+    - http://localhost:5000/XLM/SEK
+    - http://localhost:5000/ETH/EUR
+    - http://localhost:5000/USD/NOK
+`);
 
 function reqToURL (req: ServerRequest) {
   const base = req.conn.localAddr.transport === 'tcp' ? req.conn.localAddr.hostname : 'localhost';
